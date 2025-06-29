@@ -2,18 +2,23 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        VegetableChopper barron = new VegetableChopper("barron");
-        VegetableChopper olivia = new VegetableChopper("olivia");
+        System.out.println("Barron started & requesting Olivia's help.");
+        Thread olivia = new ChefOlivia();
+        System.out.println("Olivia state "+olivia.getState());
 
-        barron.start(); // barron start chopping
-        olivia.start(); // olivia start chopping
-        Thread.sleep(1000); //continue chopping for one second
-        VegetableChopper.chopping = false; //stop chopping
+        System.out.println("Barron tells Olivia to start.");
+        olivia.start();
+        System.out.println("Olivia state "+olivia.getState());
 
-        barron.join();
+        System.out.println("Barron continues cooking soup.");
+        Thread.sleep(500);
+        System.out.println("Olivia state "+olivia.getState());
+
+        System.out.println("Barron patiently wait for Olivia to finish and join...");
         olivia.join();
-        System.out.format("Barron chopped %d vegetables \n", barron.vegetableCount);
-        System.out.format("Olivia chopped %d vegetables \n", olivia.vegetableCount);
+        System.out.println("Olivia state "+olivia.getState());
+
+        System.out.println("Barron and Olivia are both done!");
 
     }
 }
