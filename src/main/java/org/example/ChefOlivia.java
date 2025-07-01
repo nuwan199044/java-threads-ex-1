@@ -1,6 +1,6 @@
 package org.example;
 
-public class ChefOlivia extends Thread {
+public class ChefOlivia implements Runnable {
     @Override
     public void run() {
         System.out.println("Olivia started and waiting for sausage to thaw...");

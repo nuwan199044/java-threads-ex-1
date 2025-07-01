@@ -3,7 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Barron started & requesting Olivia's help.");
-        Thread olivia = new ChefOlivia();
+        Thread olivia = new Thread(new ChefOlivia());
         System.out.println("Olivia state "+olivia.getState());
 
         System.out.println("Barron tells Olivia to start.");
